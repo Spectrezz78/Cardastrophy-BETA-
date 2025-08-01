@@ -22,7 +22,7 @@ class Cardastrophy(QWidget):
         self.rand = 1
         self.kazanma = 0
         self.kaybetme = 0
-        self.token = 10000
+        self.token = 0
         self.chosencards = 0
         self.bsignal = 0
         self.hgsignal = 0
