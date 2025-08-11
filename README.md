@@ -1,4 +1,8 @@
 # Cardastrophy-BETA-(CHIMERA UPDATE 👹🦁🐍)
+
+<img width="484" height="288" alt="Ekran görüntüsü 2025-08-11 174334" src="https://github.com/user-attachments/assets/37abc693-a31e-4d0f-9ac1-633834b038b6" />
+
+
 A card based deck building strategy game inspired by Poker and Clash Royale.
 DESCRIPTION:
 Cardastrophy is a more strategic take on rock, paper, scissors that focuses on limited item management. The game has 5 free cards and as of now 2 shop exclusive cards. There is also a deck building system present in the game, each deck can only have 5 cards, having more or less prevents the player from playing the game. If I were to explain each card more briefly...
