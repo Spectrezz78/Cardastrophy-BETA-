@@ -17,6 +17,7 @@ class Cardastrophy(QWidget):
         self.jestercount = 2
         self.robotcount = 2
         self.dragoncount = 2
+        self.chimeracount = 2
         self.ghostbutlercount = 1
         self.hourglasscount = 2
         self.rand = 1
@@ -26,6 +27,7 @@ class Cardastrophy(QWidget):
         self.chosencards = 0
         self.bsignal = 0
         self.hgsignal = 0
+        self.chimerasignal = 0
         self.coinlabel = QLabel(f"Card-Token🎴: {self.token}")
         self.coinlabel.setObjectName("coinlabel")
         self.titlelabel = QLabel("CARDASTROPHY", self)
@@ -74,6 +76,8 @@ class Cardastrophy(QWidget):
         self.butlerdeck.setObjectName("butlerdeck")
         self.hourglassdeck = QCheckBox("⌛")
         self.hourglassdeck.setObjectName("hourglassdeck")
+        self.chimeradeck = QCheckBox("👹🦁🐍")
+        self.chimeradeck.setObjectName("chimeradeck")
         self.dragonvalue = 1
         self.kingvalue = 1
         self.jestervalue = 1
@@ -81,17 +85,32 @@ class Cardastrophy(QWidget):
         self.planetvalue = 1
         self.butlervalue = 0
         self.hourglassvalue = 0
+        self.chimeravalue = 0
         self.butler = QPushButton("🤵‍/👻 Butler(🎴2500)")
         self.butler.setObjectName("butler")
         self.boughtbutler = 0
         self.boughthourglass = 0
+        self.boughtchimera = 0
         self.butlercharacter = QPushButton("🤵‍♂️")
         self.butlercharacter.setObjectName("butlercharacter")
+        self.chimera = QPushButton(f"👹🦁🐍({self.chimeracount})")
+        self.chimera.setObjectName("chimera")
         self.ghostbutler = QPushButton(f"👻({self.ghostbutlercount})")
         self.ghostbutler.setObjectName("ghostbutler")
         self.hourglass = QPushButton("⌛Hourglass(🎴1500)")
         self.hourglass.setObjectName("hourglass")
         self.hourglassbutton = QPushButton(f"⌛({self.hourglasscount})")
+        self.chimerabuy = QPushButton("👹🦁🐍Chimera(🎴2500)")
+        self.chimerabuy.setObjectName("chimerabuy")
+        self.clionatk = QPushButton("🦁")
+        self.cgoatatk = QPushButton("👹")
+        self.csnakeatk = QPushButton("🐍")
+        self.clionatk.setObjectName("clionatk")
+        self.cgoatatk.setObjectName("cgoatatk")
+        self.csnakeatk.setObjectName("csnakeatk")
+        self.lioncount = 1
+        self.goatcount = 1
+        self.snakecount = 1
         self.initUI()
 
     def initUI(self):
@@ -108,11 +127,17 @@ class Cardastrophy(QWidget):
         self.tur.setAlignment(Qt.AlignCenter)
         self.rw.setAlignment(Qt.AlignCenter)
 
+        attacklayout = QHBoxLayout()
+        attacklayout.addWidget(self.clionatk)
+        attacklayout.addWidget(self.cgoatatk)
+        attacklayout.addWidget(self.csnakeatk)
+
         button_layout = QVBoxLayout()
         button_layout.addWidget(self.playbutton)
         button_layout.addWidget(self.deck)
         button_layout.addWidget(self.butler)
         button_layout.addWidget(self.hourglass)
+        button_layout.addWidget(self.chimerabuy)
         button_layout.addWidget(self.backtomenu)
         button_layout.addWidget(self.shop)
         button_layout.addWidget(self.again)
@@ -124,6 +149,7 @@ class Cardastrophy(QWidget):
         button_layout.addWidget(self.butlercharacter)
         button_layout.addWidget(self.ghostbutler)
         button_layout.addWidget(self.hourglassbutton)
+        button_layout.addWidget(self.chimera)
 
         layout = QVBoxLayout()
         layout.addWidget(self.coinlabel)
@@ -136,6 +162,7 @@ class Cardastrophy(QWidget):
         layout.addWidget(self.rw)
         layout.addWidget(self.desc)
         layout.addWidget(self.victory)
+        layout.addLayout(attacklayout)
         layout.addLayout(button_layout)
 
         checkboxlayout = QHBoxLayout()
@@ -146,6 +173,7 @@ class Cardastrophy(QWidget):
         checkboxlayout.addWidget(self.planetdeck)
         checkboxlayout.addWidget(self.butlerdeck)
         checkboxlayout.addWidget(self.hourglassdeck)
+        checkboxlayout.addWidget(self.chimeradeck)
         layout.addLayout(checkboxlayout)
 
         self.player.hide()
@@ -175,6 +203,12 @@ class Cardastrophy(QWidget):
         self.hourglass.hide()
         self.hourglassdeck.hide()
         self.hourglassbutton.hide()
+        self.chimerabuy.hide()
+        self.chimeradeck.hide()
+        self.chimera.hide()
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
 
         self.setLayout(layout)
 
@@ -233,6 +267,9 @@ class Cardastrophy(QWidget):
         QPushButton#butler {
             background-color: purple;
             }
+        QPushButton#chimerabuy {
+            background-color: purple;
+            }
         QPushButton#hourglass {
             background-color: yellow;
             }
@@ -243,6 +280,7 @@ class Cardastrophy(QWidget):
         self.dragon.clicked.connect(self.choosedragon)
         self.butlercharacter.clicked.connect(self.choosebutler)
         self.hourglassbutton.clicked.connect(self.choosehg)
+        self.chimera.clicked.connect(self.choosechimera)
         self.king.clicked.connect(self.chooseking)
         self.robot.clicked.connect(self.chooserobot)
         self.planet.clicked.connect(self.chooseplanet)
@@ -259,9 +297,14 @@ class Cardastrophy(QWidget):
         self.robotdeck.stateChanged.connect(self.enablerobot)
         self.butler.clicked.connect(self.buyalfred)
         self.butlerdeck.stateChanged.connect(self.enablebutler)
+        self.chimeradeck.stateChanged.connect(self.enablechimera)
         self.ghostbutler.clicked.connect(self.ghostbutlerchoose)
         self.hourglass.clicked.connect(self.buyhglass)
+        self.chimerabuy.clicked.connect(self.buychimeracard)
         self.hourglassdeck.stateChanged.connect(self.enablehourglass)
+        self.clionatk.clicked.connect(self.winloselion)
+        self.cgoatatk.clicked.connect(self.winlosegoat)
+        self.csnakeatk.clicked.connect(self.winlosesnake)
 
     def choosedragon(self):
         self.player.setText("🐉")
@@ -357,6 +400,14 @@ class Cardastrophy(QWidget):
         if self.hourglasscount == 0:
             self.hourglassbutton.hide()
             self.desc.setText("You cannot skip any more rounds.")
+            QTimer.singleShot(1000, lambda: self.desc.clear())
+    def choosechimera(self):
+        self.player.setText("👹🦁🐍")
+        self.chimeracount -= 1
+        self.chimera.setText(f"👹🦁🐍({self.chimeracount})")
+        self.choosechead()
+        if self.chimeracount == 0:
+            self.chimera.hide()
             QTimer.singleShot(1000, lambda: self.desc.clear())
     def ghostbutlerchoose(self):
         self.player.setText("👻")
@@ -541,6 +592,82 @@ class Cardastrophy(QWidget):
         self.coinlabel.setText(f"Card-Token🎴: {self.token}")
         QTimer.singleShot(500, lambda: self.desc.clear())
 
+    def winloselion(self):
+        self.kazanma += 1
+        self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+        self.desc.setText(f"You have won round {self.rand}")
+        self.token += 50
+        self.coinlabel.setText(f"Card-Token🎴: {self.token}")
+        self.aianswer()
+        self.player.setText("❓")
+        self.rounds()
+        self.tur.setText(f"ROUND {self.rand}")
+        QTimer.singleShot(500, lambda: self.desc.clear())
+        self.lioncount -= 1
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
+
+    def winlosegoat(self):
+        aitext = self.ai.text()
+        if "🫅" in aitext:
+            self.kazanma += 1
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The Chimera has eaten the king.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        elif "🐉" in aitext:
+            self.kazanma += 1
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The dragon was torn to shreds.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        elif "🤵" in aitext:
+            self.kaybetme += 1
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The butler was torn to shreds.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        else:
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The chimera has protected itself.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        self.aianswer()
+        self.player.setText("❓")
+        self.rounds()
+        self.tur.setText(f"ROUND {self.rand}")
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
+        self.goatcount -= 1
+        QTimer.singleShot(500, lambda: self.desc.clear())
+
+    def winlosesnake(self):
+        aitext = self.ai.text()
+        if "🫅" in aitext:
+            self.kaybetme += 1
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The king has tamed the chimera.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        if "🤵" in aitext:
+            self.kaybetme += 1
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText("The butler has haunted the chimera.")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        else:
+            self.kazanma += 2
+            self.victory.setText(f"✅: {self.kazanma} | ❌: {self.kaybetme} ")
+            self.desc.setText(f"You have won round {self.rand}")
+            self.token += 50
+            self.coinlabel.setText(f"Card-Token🎴: {self.token}")
+            QTimer.singleShot(500, lambda: self.desc.clear())
+        self.aianswer()
+        self.player.setText("❓")
+        self.rounds()
+        self.tur.setText(f"ROUND {self.rand}")
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
+        self.snakecount -= 1
+        QTimer.singleShot(500, lambda: self.desc.clear())
+
     def openshop(self):
         self.jester.hide()
         self.robot.hide()
@@ -565,6 +692,7 @@ class Cardastrophy(QWidget):
         self.shop.hide()
         self.hourglass.show()
         self.butler.show()
+        self.chimerabuy.show()
 
     def rounds(self):
         self.rand += 1
@@ -598,6 +726,10 @@ class Cardastrophy(QWidget):
         self.ghostbutler.hide()
         QTimer.singleShot(1000, lambda: None)
         self.ghostbutler.hide()
+        self.chimera.hide()
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
 
     def startgame(self):
         self.playbutton.hide()
@@ -639,6 +771,10 @@ class Cardastrophy(QWidget):
             self.hourglassbutton.show()
         else:
             self.hourglassbutton.hide()
+        if self.chimeravalue == 1:
+            self.chimera.show()
+        else:
+            self.chimera.hide()
 
         self.rand = 1
         self.tur.setText(f"ROUND {self.rand}")
@@ -727,6 +863,15 @@ class Cardastrophy(QWidget):
             self.hourglassbutton.setText(f"⌛({self.hourglasscount})")
         else:
             self.hourglassbutton.hide()
+        if self.chimeravalue == 1:
+            self.chimera.show()
+            self.chimeracount = 2
+            self.lioncount = 1
+            self.goatcount = 1
+            self.snakecount = 1
+            self.chimera.setText(f"👹🦁🐍({self.chimeracount})")
+        else:
+            self.chimera.hide()
         self.player.setText("❓")
         self.rw.clear()
         self.gameover.clear()
@@ -758,6 +903,12 @@ class Cardastrophy(QWidget):
         self.hourglass.hide()
         self.hourglassdeck.hide()
         self.hourglassbutton.hide()
+        self.chimerabuy.hide()
+        self.chimeradeck.hide()
+        self.chimera.hide()
+        self.clionatk.hide()
+        self.cgoatatk.hide()
+        self.csnakeatk.hide()
 
     def modifydeck(self):
         self.titlelabel.setText("Your Deck")
@@ -770,6 +921,8 @@ class Cardastrophy(QWidget):
         self.planetdeck.show()
         if self.boughtbutler == 2:
             self.butlerdeck.show()
+        if self.boughtchimera == 2:
+            self.chimeradeck.show()
         if self.boughthourglass == 2:
             self.hourglassdeck.show()
         if self.dragonvalue == 1:
@@ -855,6 +1008,17 @@ class Cardastrophy(QWidget):
             print(self.hourglassvalue)
         self.backtomenu.setVisible(self.chosencards == 5)
 
+    def enablechimera(self, state):
+        if state == Qt.Unchecked:
+            self.chimeravalue = 2
+            self.chosencards -= 1
+            print(self.chimeravalue)
+        elif state == Qt.Checked:
+            self.chimeravalue = 1
+            self.chosencards += 1
+            print(self.chimeravalue)
+        self.backtomenu.setVisible(self.chosencards == 5)
+
     def buyalfred(self):
         if self.token == 2500 or self.token > 2500:
             self.boughtbutler = 2
@@ -873,6 +1037,28 @@ class Cardastrophy(QWidget):
             self.coinlabel.setText(f"Card-Token🎴: {self.token}")
         else:
             pass
+    def buychimeracard(self):
+        if self.token == 2500 or self.token > 2500:
+            self.boughtchimera = 2
+            self.chimerasignal = 2
+            self.chimerabuy.hide()
+            self.token -= 2500
+            self.coinlabel.setText(f"Card-Token🎴: {self.token}")
+        else:
+            pass
+    def choosechead(self):
+        if self.lioncount == 1:
+            self.clionatk.show()
+        else:
+            self.clionatk.hide()
+        if self.goatcount == 1:
+            self.cgoatatk.show()
+        else:
+            self.cgoatatk.hide()
+        if self.snakecount == 1:
+            self.csnakeatk.show()
+        else:
+            self.csnakeatk.hide()
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     cardastrophy = Cardastrophy()
