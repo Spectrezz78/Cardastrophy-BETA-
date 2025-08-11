@@ -7,6 +7,9 @@ A card based deck building strategy game inspired by Poker and Clash Royale.
 DESCRIPTION:
 Cardastrophy is a more strategic take on rock, paper, scissors that focuses on limited item management. The game has 5 free cards and as of now 2 shop exclusive cards. There is also a deck building system present in the game, each deck can only have 5 cards, having more or less prevents the player from playing the game. If I were to explain each card more briefly...
 
+<img width="527" height="304" alt="Ekran görüntüsü 2025-08-11 174350" src="https://github.com/user-attachments/assets/d3f10ec5-3d4e-4bd7-a1c7-4c9f1a2de61e" />
+
+
 FREE CARDS:
 
 KING🫅(FREE):
@@ -71,6 +74,9 @@ This card doesn't have any special abilities.
 
 SHOP EXCLUSIVE CARDS:
 
+<img width="530" height="365" alt="Ekran görüntüsü 2025-08-11 174408" src="https://github.com/user-attachments/assets/f598c5eb-00fb-4112-9722-de1980948079" />
+
+
 GHOST BUTLER🤵‍♂️//👻(MYTHIC):
 2500 Card-Tokens.
 This card is strong against:
@@ -109,6 +115,9 @@ Card Selection: Choose your card each round using buttons.
 Scoring System: Your card is compared to the AI’s. The better card wins the round.
 
 Victory/Defeat Labels: Real-time feedback is provided using labels like "Victory!" or "Game Over."
+
+<img width="528" height="818" alt="Ekran görüntüsü 2025-08-11 174430" src="https://github.com/user-attachments/assets/5a3f8b28-1ae5-43c6-a19e-634cc4024e42" />
+
 
 This was made using PyQt5, due to it being my first python library. Typically when I learn something, I like to set limits on myself like in this case, making an entire functional game using a GUI Application.
 
