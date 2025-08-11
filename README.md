@@ -1,4 +1,4 @@
-# Cardastrophy-BETA-
+# Cardastrophy-BETA-(CHIMERA UPDATE 👹🦁🐍)
 A card based deck building strategy game inspired by Poker and Clash Royale.
 DESCRIPTION:
 Cardastrophy is a more strategic take on rock, paper, scissors that focuses on limited item management. The game has 5 free cards and as of now 2 shop exclusive cards. There is also a deck building system present in the game, each deck can only have 5 cards, having more or less prevents the player from playing the game. If I were to explain each card more briefly...
@@ -83,6 +83,14 @@ Special Ability: Upon death, it will turn into a ghost that can counter any card
 HOURGLASS⌛(EPIC):
 1500 Card-Tokens,
 Special Ability: It can be used to instantly skip a round without winning or losing.
+
+CHIMERA👹🦁🐍 (MYTHIC):
+2500 Card-Tokens,
+Special Ability: All three heads have different methods of attacking.
+
+Lion: Beats every single card. (One time use)
+Goat: Functions like a jester but stalemates instead of losing. (One time use)
+Snake: Functions like a dragon but increases the wins scoreboard by 2! (One time use)
 
 Core Features:
 
