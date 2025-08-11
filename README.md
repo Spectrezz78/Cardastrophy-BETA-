@@ -89,7 +89,9 @@ CHIMERA👹🦁🐍 (MYTHIC):
 Special Ability: All three heads have different methods of attacking.
 
 Lion: Beats every single card. (One time use)
+
 Goat: Functions like a jester but stalemates instead of losing. (One time use)
+
 Snake: Functions like a dragon but increases the wins scoreboard by 2! (One time use)
 
 Core Features:
