@@ -1,4 +1,4 @@
-# Cardastrophy-BETA-(CHIMERA UPDATE 👹🦁🐍)
+# Cardastrophy-BETA-(LIFE DICE 🎲☘️)
 
 <img width="484" height="288" alt="Ekran görüntüsü 2025-08-11 174334" src="https://github.com/user-attachments/assets/37abc693-a31e-4d0f-9ac1-633834b038b6" />
 
@@ -103,6 +103,10 @@ Lion: Beats every single card. (One time use)
 Goat: Functions like a jester but stalemates instead of losing. (One time use)
 
 Snake: Functions like a dragon but increases the wins scoreboard by 2! (One time use)
+
+LIFE DICE 🎲 (EPIC):
+2500 Card-Tokens,
+Special Ability: Has an equal chance of giving 1 more of each starter card when used.
 
 Core Features:
 
