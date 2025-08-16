@@ -1,7 +1,12 @@
-# Cardastrophy-BETA-(LIFE DICE 🎲☘️)
+# Cardastrophy-BETA-(NPCS 🧌🙆 + BUGFIXES✨)
 
 <img width="484" height="288" alt="Ekran görüntüsü 2025-08-11 174334" src="https://github.com/user-attachments/assets/37abc693-a31e-4d0f-9ac1-633834b038b6" />
 
+PATCH NOTES:
+
+-There are now two new interactable npcs in the shop and deck sections!
+
+-Fixed a bug where players could endlessly click an option even though the round wasn't over.
 
 A card based deck building strategy game inspired by Poker and Clash Royale.
 DESCRIPTION:
