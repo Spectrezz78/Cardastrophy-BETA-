@@ -50,3 +50,21 @@ Victory/Defeat Labels: Real-time feedback is provided using labels like "Victory
 This was made using PyQt5, due to it being my first python library. Typically when I learn something, I like to set limits on myself like in this case, making an entire functional game using a GUI Application.
 
 I hope you can support me on my development journey and make this game into a CARDtastic experience!
+
+FUTURE UPDATES:
+
+Adding a rare card and also more epics and mythics!
+
+Getting rid of the emoji art completely albeit the deck selections and replacing them with actual cards.
+
+Adding a deck builder AI with a custom database.
+
+Giving the relics button a function to spice up the gameplay.
+
+Making card types and having each of them bring a different status effect.
+
+Status effects.
+
+Making the AI smarter.
+
+Hopefully releasing the full version on itch.io!
